@@ -1,4 +1,4 @@
-#include <stdio.h>
+п»ї#include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <locale.h>
@@ -14,18 +14,18 @@
 FILE * fp;
 
 char path[30] = "employees.txt";
-char path2[30] = "employees2.txt"; // файл для хранения журнала посещений
+char path2[30] = "employees2.txt"; // С„Р°Р№Р» РґР»СЏ С…СЂР°РЅРµРЅРёСЏ Р¶СѓСЂРЅР°Р»Р° РїРѕСЃРµС‰РµРЅРёР№
 char path3[30] = "employees3.txt";
 EMPLOYEE employees;
-int count = 0; // количество служащих
+int count = 0; // РєРѕР»РёС‡РµСЃС‚РІРѕ СЃР»СѓР¶Р°С‰РёС…
 
-			   // структура для получения системного времени
+			   // СЃС‚СЂСѓРєС‚СѓСЂР° РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ СЃРёСЃС‚РµРјРЅРѕРіРѕ РІСЂРµРјРµРЅРё
 char *settime(struct tm*u)
 {
 	char s[40];
 	char *tmp;
 	for (int i = 0; i < 40; i++) s[i] = 0;
-	int length = strftime(s, 40, "%d.%m.%Y %H:%M:%S, %A", u);
+	int length = strftime(s, 40, "%d.%m.%YВ %H:%M:%S,В %A", u);
 	tmp = (char *)malloc(sizeof(s));
 	strcpy(tmp, s);
 	return(tmp);
@@ -40,7 +40,7 @@ int authorization(char *lastName, int password)
 	const time_t timer = time(NULL); // 
 	u = localtime(&timer);
 	f = settime(u);
-	//printf("%ld соответствует ", timer);
+	//printf("%ld СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ ", timer);
 	//puts(f);
 	getchar();
 
@@ -92,7 +92,7 @@ int authorization(char *lastName, int password)
 			fwrite(loginEmp, sizeof(LOGIN), 1, fp);
 		}
 		else
-			printf("Ошибка открытия файла employees2.txt ");
+			printf("РћС€РёР±РєР° РѕС‚РєСЂС‹С‚РёСЏ С„Р°Р№Р»Р° employees2.txt ");
 
 		fclose(fp);
 
@@ -131,7 +131,7 @@ void GenerateDate(CURRANTDATE *cdate)
 	//const time_t timer = time(NULL); // 
 	//u = localtime(&timer);
 	//f = settime(u);
-	////printf("%ld соответствует ", timer);
+	////printf("%ld СЃРѕРѕС‚РІРµС‚СЃС‚РІСѓРµС‚ ", timer);
 	////puts(f);
 	//getchar();
 
@@ -254,27 +254,27 @@ void GenerateRank(ARMY *eRank, int id, BIRTHDATE *bdt)
 		switch (nRank)
 		{
 		case 1:
-			strcpy(eRank->rank, "Рядовой");
+			strcpy(eRank->rank, "Р СЏРґРѕРІРѕР№");
 			break;
 
 		case 2:
-			strcpy(eRank->rank, "Старшина");
+			strcpy(eRank->rank, "РЎС‚Р°СЂС€РёРЅР°");
 			break;
 
 		case 3:
-			strcpy(eRank->rank, "Лейтенант");
+			strcpy(eRank->rank, "Р›РµР№С‚РµРЅР°РЅС‚");
 			break;
 
 		case 4:
-			strcpy(eRank->rank, "Капитан");
+			strcpy(eRank->rank, "РљР°РїРёС‚Р°РЅ");
 			break;
 
 		case 5:
-			strcpy(eRank->rank, "Майор");
+			strcpy(eRank->rank, "РњР°Р№РѕСЂ");
 			break;
 
 		case 6:
-			strcpy(eRank->rank, "Подполковник");
+			strcpy(eRank->rank, "РџРѕРґРїРѕР»РєРѕРІРЅРёРє");
 			break;
 		}
 
@@ -295,23 +295,23 @@ void GenerateRank(ARMY *eRank, int id, BIRTHDATE *bdt)
 		switch (disposition)
 		{
 		case 1:
-			strcpy(eRank->dispos, "АВОКУ");
+			strcpy(eRank->dispos, "РђР’РћРљРЈ");
 			break;
 
 		case 2:
-			strcpy(eRank->dispos, "СВО");
+			strcpy(eRank->dispos, "РЎР’Рћ");
 			break;
 
 		case 3:
-			strcpy(eRank->dispos, "ЗВО");
+			strcpy(eRank->dispos, "Р—Р’Рћ");
 			break;
 
 		case 4:
-			strcpy(eRank->dispos, "ВВО");
+			strcpy(eRank->dispos, "Р’Р’Рћ");
 			break;
 
 		case 5:
-			strcpy(eRank->dispos, "ЮВО");
+			strcpy(eRank->dispos, "Р®Р’Рћ");
 			break;
 		}
 
@@ -324,8 +324,8 @@ void GenerateRank(ARMY *eRank, int id, BIRTHDATE *bdt)
 		eRank->retire.day = 0;
 		eRank->retire.month = 0;
 		eRank->retire.year = 0;
-		strcpy(eRank->rank, "Невоеннообязанный\n");
-		strcpy(eRank->dispos, "Невоеннообязанный\n");
+		strcpy(eRank->rank, "РќРµРІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Р№\n");
+		strcpy(eRank->dispos, "РќРµРІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Р№\n");
 	}
 	//eRank->dayOfService = diffDay(eRank->retire, eRank->call);
 
@@ -340,45 +340,45 @@ void GeneratePosition(POSITION *position, BIRTHDATE *bdt, ARMY *eRank, int id)
 	switch (num)
 	{
 	case 1:
-		strcpy(position->pstn, "Разнорабочий");
+		strcpy(position->pstn, "Р Р°Р·РЅРѕСЂР°Р±РѕС‡РёР№");
 		strcpy(position->sal, "50000");
-		//printf("Оклад: %s", employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", employees.pos.sal);
 		break;
 
 	case 2:
-		strcpy(position->pstn, "Техник");
+		strcpy(position->pstn, "РўРµС…РЅРёРє");
 		strcpy(position->sal, "70000");
-		//printf("Оклад: %s", employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", employees.pos.sal);
 		break;
 
 	case 3:
-		strcpy(position->pstn, "Слесарь");
+		strcpy(position->pstn, "РЎР»РµСЃР°СЂСЊ");
 		strcpy(position->sal, "100000");
-		//printf("Оклад: %s", employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", employees.pos.sal);
 		break;
 
 	case 4:
-		strcpy(position->pstn, "Кладовщик");
+		strcpy(position->pstn, "РљР»Р°РґРѕРІС‰РёРє");
 		strcpy(position->sal, "120000");
-		//printf("Оклад: %s", &employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", &employees.pos.sal);
 		break;
 
 	case 5:
-		strcpy(position->pstn, "Бухгалтер");
+		strcpy(position->pstn, "Р‘СѓС…РіР°Р»С‚РµСЂ");
 		strcpy(position->sal, "150000");
-		//printf("Оклад: %s", employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", employees.pos.sal);
 		break;
 
 	case 6:
-		strcpy(position->pstn, "Начальник смены");
+		strcpy(position->pstn, "РќР°С‡Р°Р»СЊРЅРёРє СЃРјРµРЅС‹");
 		strcpy(position->sal, "170000");
-		//printf("Оклад: %s", employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", employees.pos.sal);
 		break;
 
 	case 7:
-		strcpy(position->pstn, "Сотрудник администрации");
+		strcpy(position->pstn, "РЎРѕС‚СЂСѓРґРЅРёРє Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё");
 		strcpy(position->sal, "1000000");
-		//printf("Оклад: %s", employees.pos.sal);
+		//printf("РћРєР»Р°Рґ: %s", employees.pos.sal);
 		break;
 	}
 
@@ -422,41 +422,41 @@ void PrintInfoEmpoyee(EMPLOYEE * employees, int len)
 	for (int i = 0; i < len; i++)
 	{
 		Line();
-		printf("Табельный номер: %d\n ", (employees + i)->tblNmb);
-		printf("ФИО: %s %s %s\n",
+		printf("РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ: %d\n ", (employees + i)->tblNmb);
+		printf("Р¤РРћ: %s %s %s\n",
 			(employees + i)->lName,
 			(employees + i)->fName,
 			(employees + i)->mName);
 
 
 		if ((employees + i)->sex)
-			printf("пол: муж.\n");
+			printf("РїРѕР»: РјСѓР¶.\n");
 		else
-			printf("пол: жен.\n");
+			printf("РїРѕР»: Р¶РµРЅ.\n");
 
-		printf("Дата рождения: %d.%d.%d\n",
+		printf("Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ: %d.%d.%d\n",
 			(employees + i)->btd.day,
 			(employees + i)->btd.month,
 			(employees + i)->btd.year);
 
-		printf("Возраст: %d\n ", (employees + i)->btd.age);
+		printf("Р’РѕР·СЂР°СЃС‚: %d\n ", (employees + i)->btd.age);
 
-		printf("ИИН: %lld\n", (employees + i)->iin);
+		printf("РРРќ: %lld\n", (employees + i)->iin);
 
-		printf("Дата начала работы: %d.%d.%d\n",
+		printf("Р”Р°С‚Р° РЅР°С‡Р°Р»Р° СЂР°Р±РѕС‚С‹: %d.%d.%d\n",
 			(employees + i)->pos.entryDate.day,
 			(employees + i)->pos.entryDate.month,
 			(employees + i)->pos.entryDate.year);
 
-		printf("Должность: %s\n", (employees + i)->pos.pstn);
+		printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", (employees + i)->pos.pstn);
 
-		printf("Оклад: %s\n", (employees + i)->pos.sal);
-		printf("Стаж: %d\n ", (employees + i)->pos.yearOfWork);
-		printf("Стаж в днях: %d\n ", (employees + i)->pos.dayOfWork);
+		printf("РћРєР»Р°Рґ: %s\n", (employees + i)->pos.sal);
+		printf("РЎС‚Р°Р¶: %d\n ", (employees + i)->pos.yearOfWork);
+		printf("РЎС‚Р°Р¶ РІ РґРЅСЏС…: %d\n ", (employees + i)->pos.dayOfWork);
 		if ((employees + i)->eRankId)
 		{
-			printf("Военнообязанный.\n");
-			printf("Звание: %s, Дата призыва: %d.%d.%d, Дата увольнения в запас: %d.%d.%d, воинская часть: %s\n",
+			printf("Р’РѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Р№.\n");
+			printf("Р—РІР°РЅРёРµ: %s, Р”Р°С‚Р° РїСЂРёР·С‹РІР°: %d.%d.%d, Р”Р°С‚Р° СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ: %d.%d.%d, РІРѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n",
 				(employees + i)->eRank.rank,
 				(employees + i)->eRank.call.day,
 				(employees + i)->eRank.call.month,
@@ -465,17 +465,17 @@ void PrintInfoEmpoyee(EMPLOYEE * employees, int len)
 				(employees + i)->eRank.retire.month,
 				(employees + i)->eRank.retire.year,
 				(employees + i)->eRank.dispos);
-			printf("Количество дней службы: %d\n", (employees + i)->eRank.dayOfService);
-			//printf("Количество дней службы: %d\n", diffDay((employees + i)->eRank.retire, (employees + i)->eRank.call));
+			printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№ СЃР»СѓР¶Р±С‹: %d\n", (employees + i)->eRank.dayOfService);
+			//printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№ СЃР»СѓР¶Р±С‹: %d\n", diffDay((employees + i)->eRank.retire, (employees + i)->eRank.call));
 		}
 
 
 		if ((employees + i)->eRole == 0)
-			printf("роль: пользователь\n");
+			printf("СЂРѕР»СЊ: РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ\n");
 		else
-			printf("роль: администратор\n");
+			printf("СЂРѕР»СЊ: Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ\n");
 
-		printf("пароль: %ld\n", (employees + i)->password);
+		printf("РїР°СЂРѕР»СЊ: %ld\n", (employees + i)->password);
 		Line();
 
 	}
@@ -490,41 +490,41 @@ void PrintInfoEmpoyee2(EMPLOYEE * employees)
 		{
 
 			Line();
-			printf("Табельный номер: %d\n ", employees->tblNmb);
-			printf("ФИО: %s %s %s\n",
+			printf("РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ: %d\n ", employees->tblNmb);
+			printf("Р¤РРћ: %s %s %s\n",
 				employees->lName,
 				employees->fName,
 				employees->mName);
 
 			if (employees->sex)
-				printf("пол: муж.\n");
+				printf("РїРѕР»: РјСѓР¶.\n");
 			else
-				printf("пол: жен.\n");
+				printf("РїРѕР»: Р¶РµРЅ.\n");
 
-			printf("Дата рождения: %d.%d.%d\n",
+			printf("Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ: %d.%d.%d\n",
 				employees->btd.day,
 				employees->btd.month,
 				employees->btd.year);
 
-			printf("Возраст: %d\n ", employees->btd.age);
+			printf("Р’РѕР·СЂР°СЃС‚: %d\n ", employees->btd.age);
 
-			printf("ИИН: %lld\n", employees->iin);
+			printf("РРРќ: %lld\n", employees->iin);
 
-			printf("Дата начала работы: %d.%d.%d\n",
+			printf("Р”Р°С‚Р° РЅР°С‡Р°Р»Р° СЂР°Р±РѕС‚С‹: %d.%d.%d\n",
 				employees->pos.entryDate.day,
 				employees->pos.entryDate.month,
 				employees->pos.entryDate.year);
 
-			printf("Должность: %s\n", employees->pos.pstn);
+			printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", employees->pos.pstn);
 
-			printf("Оклад: %s\n", employees->pos.sal);
+			printf("РћРєР»Р°Рґ: %s\n", employees->pos.sal);
 
-			printf("Стаж: %d\n", employees->pos.yearOfWork);
-			printf("Стаж в днях: %d\n", employees->pos.dayOfWork);
+			printf("РЎС‚Р°Р¶: %d\n", employees->pos.yearOfWork);
+			printf("РЎС‚Р°Р¶ РІ РґРЅСЏС…: %d\n", employees->pos.dayOfWork);
 			if (employees->eRankId)
 			{
-				printf("Военнообязанный.\n");
-				printf("Звание: %s, Дата призыва: %d.%d.%d, Дата увольнения в запас: %d.%d.%d, воинская часть: %s\n",
+				printf("Р’РѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Р№.\n");
+				printf("Р—РІР°РЅРёРµ: %s, Р”Р°С‚Р° РїСЂРёР·С‹РІР°: %d.%d.%d, Р”Р°С‚Р° СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ: %d.%d.%d, РІРѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n",
 					employees->eRank.rank,
 					employees->eRank.call.day,
 					employees->eRank.call.month,
@@ -533,15 +533,15 @@ void PrintInfoEmpoyee2(EMPLOYEE * employees)
 					employees->eRank.retire.month,
 					employees->eRank.retire.year,
 					employees->eRank.dispos);
-				printf("Количество дней службы: %d\n", employees->eRank.dayOfService);
+				printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№ СЃР»СѓР¶Р±С‹: %d\n", employees->eRank.dayOfService);
 			}
 
 			if (employees->eRole == 0)
-				printf("роль: пользователь\n");
+				printf("СЂРѕР»СЊ: РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ\n");
 			else
-				printf("роль: администратор\n");
+				printf("СЂРѕР»СЊ: Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂ\n");
 
-			printf("пароль: %ld\n", employees->password);
+			printf("РїР°СЂРѕР»СЊ: %ld\n", employees->password);
 			Line();
 
 		}
@@ -557,17 +557,17 @@ void PrintInfoEmpoyee3(EMPLOYEE * employees)
 		{
 
 			Line();
-			printf("Табельный номер: %d\n ", employees->tblNmb);
-			printf("ФИО: %s %s %s\n",
+			printf("РўР°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ: %d\n ", employees->tblNmb);
+			printf("Р¤РРћ: %s %s %s\n",
 				employees->lName,
 				employees->fName,
 				employees->mName);
 
-			printf("Возраст: %d\n ", employees->btd.age);
+			printf("Р’РѕР·СЂР°СЃС‚: %d\n ", employees->btd.age);
 
-			printf("Стаж в днях: %d\n", employees->pos.dayOfWork);
+			printf("РЎС‚Р°Р¶ РІ РґРЅСЏС…: %d\n", employees->pos.dayOfWork);
 
-			printf("пароль: %ld\n", employees->password);
+			printf("РїР°СЂРѕР»СЊ: %ld\n", employees->password);
 			Line();
 
 		}
@@ -586,14 +586,14 @@ EMPLOYEE *CreateEmployee(int *count)
 		for (int i = 0; i < *count - 2; i++)
 		{
 			GenerateDate(&(employees + i)->pos.cdate);
-			(employees + i)->tblNmb = 1000 + rand() % 2000; // табельный номер
+			(employees + i)->tblNmb = 1000 + rand() % 2000; // С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ
 			CreateName((employees + i)->lName, 10);
 			CreateName((employees + i)->fName, 10);
 			CreateName((employees + i)->mName, 10);
-			(employees + i)->sex = 0 + rand() % 2; // пол
-			GenerateDate(&(employees + i)->btd);  // день рождения
-			(employees + i)->btd.age = 2018 - (employees + i)->btd.year; // возраст
-																		 //GeneratePosition(&(employees + i)->pos); // должность и оклад
+			(employees + i)->sex = 0 + rand() % 2; // РїРѕР»
+			GenerateDate(&(employees + i)->btd);  // РґРµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ
+			(employees + i)->btd.age = 2018 - (employees + i)->btd.year; // РІРѕР·СЂР°СЃС‚
+																		 //GeneratePosition(&(employees + i)->pos); // РґРѕР»Р¶РЅРѕСЃС‚СЊ Рё РѕРєР»Р°Рґ
 			(employees + i)->eRankId = 0 + rand() % 2;
 			GenerateRank(&(employees + i)->eRank, (employees + i)->eRankId, &(employees + i)->btd);
 			GenerateEntryDate(&(employees + i)->pos.entryDate, &(employees + i)->btd, &(employees + i)->eRank, (employees + i)->eRankId);
@@ -603,42 +603,42 @@ EMPLOYEE *CreateEmployee(int *count)
 			(employees + i)->eRole = 0;
 		}
 		GenerateDate(&(employees + *count - 1)->pos.cdate);
-		(employees + *count - 1)->tblNmb = 0001; // табельный номер
+		(employees + *count - 1)->tblNmb = 0001; // С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ
 		strcpy((employees + *count - 1)->lName, "admin");
 		strcpy((employees + *count - 1)->fName, "admin");
 		strcpy((employees + *count - 1)->mName, "admin");
-		(employees + *count - 1)->sex = 1; // пол
-		GenerateDate(&(employees + *count - 1)->btd);  // день рождения
-		(employees + *count - 1)->btd.age = 2018 - (employees + *count - 1)->btd.year; // возраст
-																					   //GeneratePosition(&(employees + *count - 1)->pos); // должность и оклад
+		(employees + *count - 1)->sex = 1; // РїРѕР»
+		GenerateDate(&(employees + *count - 1)->btd);  // РґРµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ
+		(employees + *count - 1)->btd.age = 2018 - (employees + *count - 1)->btd.year; // РІРѕР·СЂР°СЃС‚
+																					   //GeneratePosition(&(employees + *count - 1)->pos); // РґРѕР»Р¶РЅРѕСЃС‚СЊ Рё РѕРєР»Р°Рґ
 		(employees + *count - 1)->eRankId = 0 + rand() % 2;
 		GenerateRank(&(employees + *count - 1)->eRank, (employees + *count - 1)->eRankId, &(employees + *count - 1)->btd);
 		GenerateEntryDate(&(employees + *count - 1)->pos.entryDate, &(employees + *count - 1)->btd, &(employees + *count - 1)->eRank, (employees + *count - 1)->eRankId);
-		GeneratePosition(&(employees + *count - 1)->pos, &(employees + *count - 1)->btd, &(employees + *count - 1)->eRank, (employees + *count - 1)->eRankId); // должность и оклад
+		GeneratePosition(&(employees + *count - 1)->pos, &(employees + *count - 1)->btd, &(employees + *count - 1)->eRank, (employees + *count - 1)->eRankId); // РґРѕР»Р¶РЅРѕСЃС‚СЊ Рё РѕРєР»Р°Рґ
 		(employees + *count - 1)->iin = generateIIN(&(employees + *count - 1)->btd);
 		(employees + *count - 1)->password = 1111;
 		(employees + *count - 1)->eRole = 1;
 
 		GenerateDate(&(employees + *count - 2)->pos.cdate);
-		(employees + *count - 2)->tblNmb = 0002; // табельный номер
+		(employees + *count - 2)->tblNmb = 0002; // С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ
 		strcpy((employees + *count - 2)->lName, "user");
 		strcpy((employees + *count - 2)->fName, "user");
 		strcpy((employees + *count - 2)->mName, "user");
-		(employees + *count - 2)->sex = 0; // пол
-		GenerateDate(&(employees + *count - 2)->btd);  // день рождения
-		(employees + *count - 2)->btd.age = 2018 - (employees + *count - 2)->btd.year; // возраст
+		(employees + *count - 2)->sex = 0; // РїРѕР»
+		GenerateDate(&(employees + *count - 2)->btd);  // РґРµРЅСЊ СЂРѕР¶РґРµРЅРёСЏ
+		(employees + *count - 2)->btd.age = 2018 - (employees + *count - 2)->btd.year; // РІРѕР·СЂР°СЃС‚
 
 		(employees + *count - 2)->eRankId = 0 + rand() % 2;
 		GenerateRank(&(employees + *count - 2)->eRank, (employees + *count - 2)->eRankId, &(employees + *count - 2)->btd);
 		GenerateEntryDate(&(employees + *count - 2)->pos.entryDate, &(employees + *count - 2)->btd, &(employees + *count - 2)->eRank, (employees + *count - 2)->eRankId);
-		GeneratePosition(&(employees + *count - 2)->pos, &(employees + *count - 2)->btd, &(employees + *count - 2)->eRank, (employees + *count - 2)->eRankId); // должность и оклад
+		GeneratePosition(&(employees + *count - 2)->pos, &(employees + *count - 2)->btd, &(employees + *count - 2)->eRank, (employees + *count - 2)->eRankId); // РґРѕР»Р¶РЅРѕСЃС‚СЊ Рё РѕРєР»Р°Рґ
 		(employees + *count - 2)->iin = generateIIN(&(employees + *count - 2)->btd);
 		(employees + *count - 2)->password = 1111;
 		(employees + *count - 2)->eRole = 0;
 	}
 	else
 	{
-		printf("Ошибка!");
+		printf("РћС€РёР±РєР°!");
 		exit(1);
 	}
 	return employees;
@@ -649,40 +649,40 @@ void Line()
 	printf("------------------------------------------------------------------------\n");
 }
 
-/* меню для администратора */
+/* РјРµРЅСЋ РґР»СЏ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂР° */
 void adminMenu()
 {
 	int p;
 	do
 	{
 		Line();
-		printf("\t\t\tМЕНЮ АДМИНИСТРАТОРА\n");
+		printf("\t\t\tРњР•РќР® РђР”РњРРќРРЎРўР РђРўРћР Рђ\n");
 		Line();
 
-		printf("1. Ввод данных новых сотрудников.\n");
-		printf("2. Вывод информации о сотрудниках.\n");
-		printf("3. Редактирование данных сотрудника.\n");
-		printf("4. Удаление сотрудника.\n");
-		printf("5. Поиск сотрудника по фамилии.\n");
-		printf("6. Поиск сотрудников по возрасту.\n");
-		printf("7. Поиск сотрудников по начальной букве.\n");
-		printf("8. Список пользователей входивших в систему.\n");
-		printf("9. Отчет о военнообязанных с указанием срока службы в днях.\n");
-		printf("10. Отчеты по военнообязанным по заданному периоду.\n");
+		printf("1. Р’РІРѕРґ РґР°РЅРЅС‹С… РЅРѕРІС‹С… СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ.\n");
+		printf("2. Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С….\n");
+		printf("3. Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґР°РЅРЅС‹С… СЃРѕС‚СЂСѓРґРЅРёРєР°.\n");
+		printf("4. РЈРґР°Р»РµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°.\n");
+		printf("5. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєР° РїРѕ С„Р°РјРёР»РёРё.\n");
+		printf("6. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕ РІРѕР·СЂР°СЃС‚Сѓ.\n");
+		printf("7. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕ РЅР°С‡Р°Р»СЊРЅРѕР№ Р±СѓРєРІРµ.\n");
+		printf("8. РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РІС…РѕРґРёРІС€РёС… РІ СЃРёСЃС‚РµРјСѓ.\n");
+		printf("9. РћС‚С‡РµС‚ Рѕ РІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹С… СЃ СѓРєР°Р·Р°РЅРёРµРј СЃСЂРѕРєР° СЃР»СѓР¶Р±С‹ РІ РґРЅСЏС….\n");
+		printf("10. РћС‚С‡РµС‚С‹ РїРѕ РІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Рј РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїРµСЂРёРѕРґСѓ.\n");
 		Line();
 
-		printf("Выберите пункт меню: ");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РјРµРЅСЋ: ");
 		scanf("%d", &p);
 
 		switch (p)
 		{
-			/* перезапись сотрудников */
+			/* РїРµСЂРµР·Р°РїРёСЃСЊ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ */
 		case 12:
 		{
-			count = 5; // ЗАДАЕМ КОЛИЧЕСТВО СОТРУДНИКОВ
+			count = 5; // Р—РђР”РђР•Рњ РљРћР›РР§Р•РЎРўР’Рћ РЎРћРўР РЈР”РќРРљРћР’
 			EMPLOYEE *employees;
 			Line();
-			printf("Записываем данные в файл emloyees.txt\n");
+			printf("Р—Р°РїРёСЃС‹РІР°РµРј РґР°РЅРЅС‹Рµ РІ С„Р°Р№Р» emloyees.txt\n");
 			employees = CreateEmployee(&count);
 			PrintInfoEmpoyee(employees, count);
 			Line();
@@ -693,21 +693,21 @@ void adminMenu()
 			}
 			else
 			{
-				printf("Ошибка!");
+				printf("РћС€РёР±РєР°!");
 				exit(1);
 			}
 			fclose(fp);
 
 		}break;
 
-		/* 1. Ввод данных новых сотрудников.*/
+		/* 1. Р’РІРѕРґ РґР°РЅРЅС‹С… РЅРѕРІС‹С… СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ.*/
 		case 1:
 		{
-			count++; // увеличиваем количесво сотрудников
+			count++; // СѓРІРµР»РёС‡РёРІР°РµРј РєРѕР»РёС‡РµСЃРІРѕ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ
 			EMPLOYEE *employees2 = (EMPLOYEE*)calloc(1, sizeof(EMPLOYEE));
 			clear();
 			Line();
-			printf("\t\t\t1. Ввод данных новых сотрудников.\n\n");
+			printf("\t\t\t1. Р’РІРѕРґ РґР°РЅРЅС‹С… РЅРѕРІС‹С… СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ.\n\n");
 			Line();
 
 			if ((fp = fopen(path, "a")) != NULL)
@@ -716,115 +716,115 @@ void adminMenu()
 				fread(employees2, 1 * sizeof(EMPLOYEE), 1, fp);
 				(employees2)->tblNmb = 1000 + rand() % 2000;
 
-				printf("Введите фамилию: ");
+				printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ");
 				scanf("%s", (employees2)->lName);
 
-				printf("Введите имя: ");
+				printf("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
 				scanf("%s", (employees2)->fName);
 
-				printf("Введите отчество: ");
+				printf("Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ: ");
 				scanf("%s", employees2->mName);
 
-				printf("Введите пол: 0 - жен., 1 - муж.");
+				printf("Р’РІРµРґРёС‚Рµ РїРѕР»: 0 - Р¶РµРЅ., 1 - РјСѓР¶.");
 				scanf("%d", &employees2->sex);
 
-				printf("Введите дату рождения в формате (дд.мм.гггг): ");
+				printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ РІ С„РѕСЂРјР°С‚Рµ (РґРґ.РјРј.РіРіРіРі): ");
 				scanf("%d.%d.%d",
 					&employees2->btd.day,
 					&employees2->btd.month,
 					&employees2->btd.year);
 
 				employees2->btd.age = 2018 - employees2->btd.year;
-				printf("Возраст: %d\n", employees2->btd.age);
+				printf("Р’РѕР·СЂР°СЃС‚: %d\n", employees2->btd.age);
 
 
-				printf("Введите должность: \n");
-				printf("1. Разнорабочий.\n");
-				printf("2. Техник.\n");
-				printf("3. Слесарь.\n");
-				printf("4. Кладовщик.\n");
-				printf("5. Бухгалтер.\n");
-				printf("6. Начальник смены.\n");
-				printf("7. Сотрудник администрации.\n");
+				printf("Р’РІРµРґРёС‚Рµ РґРѕР»Р¶РЅРѕСЃС‚СЊ: \n");
+				printf("1. Р Р°Р·РЅРѕСЂР°Р±РѕС‡РёР№.\n");
+				printf("2. РўРµС…РЅРёРє.\n");
+				printf("3. РЎР»РµСЃР°СЂСЊ.\n");
+				printf("4. РљР»Р°РґРѕРІС‰РёРє.\n");
+				printf("5. Р‘СѓС…РіР°Р»С‚РµСЂ.\n");
+				printf("6. РќР°С‡Р°Р»СЊРЅРёРє СЃРјРµРЅС‹.\n");
+				printf("7. РЎРѕС‚СЂСѓРґРЅРёРє Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё.\n");
 				int position;
 				scanf("%d", &position);
 				switch (position)
 				{
 				case 1:
-					strcpy(employees2->pos.pstn, "Разнорабочий");
+					strcpy(employees2->pos.pstn, "Р Р°Р·РЅРѕСЂР°Р±РѕС‡РёР№");
 					strcpy(employees2->pos.sal, "50000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 
 				case 2:
-					strcpy(employees2->pos.pstn, "Техник");
+					strcpy(employees2->pos.pstn, "РўРµС…РЅРёРє");
 					strcpy(employees2->pos.sal, "70000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 
 				case 3:
-					strcpy(employees2->pos.pstn, "Слесарь");
+					strcpy(employees2->pos.pstn, "РЎР»РµСЃР°СЂСЊ");
 					strcpy(employees2->pos.sal, "100000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 
 				case 4:
-					strcpy(employees2->pos.pstn, "Кладовщик");
+					strcpy(employees2->pos.pstn, "РљР»Р°РґРѕРІС‰РёРє");
 					strcpy(employees2->pos.sal, "120000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 
 				case 5:
-					strcpy(employees2->pos.pstn, "Бухгалтер");
+					strcpy(employees2->pos.pstn, "Р‘СѓС…РіР°Р»С‚РµСЂ");
 					strcpy(employees2->pos.sal, "150000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 
 				case 6:
-					strcpy(employees2->pos.pstn, "Начальник смены");
+					strcpy(employees2->pos.pstn, "РќР°С‡Р°Р»СЊРЅРёРє СЃРјРµРЅС‹");
 					strcpy(employees2->pos.sal, "170000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 
 				case 7:
-					strcpy(employees2->pos.pstn, "Сотрудник администрации");
+					strcpy(employees2->pos.pstn, "РЎРѕС‚СЂСѓРґРЅРёРє Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё");
 					strcpy(employees2->pos.sal, "1000000");
-					printf("Должность: %s\n", &employees2->pos.pstn);
-					printf("Оклад: %s\n", &employees2->pos.sal);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &employees2->pos.pstn);
+					printf("РћРєР»Р°Рґ: %s\n", &employees2->pos.sal);
 					break;
 				}
 
-				printf("Введите дату поступления на работу в формате (дд.мм.гггг): ");
+				printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЂР°Р±РѕС‚Сѓ РІ С„РѕСЂРјР°С‚Рµ (РґРґ.РјРј.РіРіРіРі): ");
 				scanf("%d.%d.%d",
 					&employees2->pos.entryDate.day,
 					&employees2->pos.entryDate.month,
 					&employees2->pos.entryDate.year);
 
 				employees2->pos.yearOfWork = 2018 - employees2->pos.entryDate.year;
-				printf("Стаж: %d\n ", employees2->pos.yearOfWork);
+				printf("РЎС‚Р°Р¶: %d\n ", employees2->pos.yearOfWork);
 
 				GenerateDate(&employees2->pos.cdate);
 				employees2->pos.dayOfWork = diffDay(employees2->pos.cdate, employees2->pos.entryDate);
-				printf("Стаж в днях: %d\n ", employees2->pos.dayOfWork);
+				printf("РЎС‚Р°Р¶ РІ РґРЅСЏС…: %d\n ", employees2->pos.dayOfWork);
 
-				printf("Военнообязанность: 1 -да, 0 - нет: ");
+				printf("Р’РѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅРѕСЃС‚СЊ: 1 -РґР°, 0 - РЅРµС‚: ");
 				scanf("%d", &employees2->eRankId);
 
 				if (employees2->eRankId)
 				{
-					printf("Введите звание: ");
-					printf("1. Рядовой.\n");
-					printf("2. Старшина.\n");
-					printf("3. Лейтенант.\n");
-					printf("4. Капитан.\n");
-					printf("5. Майор.\n");
-					printf("6. Подполковник.\n");
+					printf("Р’РІРµРґРёС‚Рµ Р·РІР°РЅРёРµ: ");
+					printf("1. Р СЏРґРѕРІРѕР№.\n");
+					printf("2. РЎС‚Р°СЂС€РёРЅР°.\n");
+					printf("3. Р›РµР№С‚РµРЅР°РЅС‚.\n");
+					printf("4. РљР°РїРёС‚Р°РЅ.\n");
+					printf("5. РњР°Р№РѕСЂ.\n");
+					printf("6. РџРѕРґРїРѕР»РєРѕРІРЅРёРє.\n");
 
 					int rank;
 					scanf("%d", &rank);
@@ -832,51 +832,51 @@ void adminMenu()
 					switch (rank)
 					{
 					case 1:
-						strcpy(employees2->eRank.rank, "Рядовой");
+						strcpy(employees2->eRank.rank, "Р СЏРґРѕРІРѕР№");
 						break;
 
 					case 2:
-						strcpy(employees2->eRank.rank, "Старшина");
+						strcpy(employees2->eRank.rank, "РЎС‚Р°СЂС€РёРЅР°");
 						break;
 
 					case 3:
-						strcpy(employees2->eRank.rank, "Лейтенант");
+						strcpy(employees2->eRank.rank, "Р›РµР№С‚РµРЅР°РЅС‚");
 						break;
 
 					case 4:
-						strcpy(employees2->eRank.rank, "Капитан");
+						strcpy(employees2->eRank.rank, "РљР°РїРёС‚Р°РЅ");
 						break;
 
 					case 5:
-						strcpy(employees2->eRank.rank, "Майор");
+						strcpy(employees2->eRank.rank, "РњР°Р№РѕСЂ");
 						break;
 
 					case 6:
-						strcpy(employees2->eRank.rank, "Подполковник");
+						strcpy(employees2->eRank.rank, "РџРѕРґРїРѕР»РєРѕРІРЅРёРє");
 						break;
 					}
 
-					printf("Введите дату призыва (дд.мм.гггг): ");
+					printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїСЂРёР·С‹РІР° (РґРґ.РјРј.РіРіРіРі): ");
 					scanf("%d.%d.%d",
 						&employees2->eRank.call.day,
 						&employees2->eRank.call.month,
 						&employees2->eRank.call.year);
 
-					printf("Введите дату увольнения в запас (дд.мм.гггг): ");
+					printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ (РґРґ.РјРј.РіРіРіРі): ");
 					scanf("%d.%d.%d",
 						&employees2->eRank.retire.day,
 						&employees2->eRank.retire.month,
 						&employees2->eRank.retire.year);
 
 					employees2->eRank.dayOfService = diffDay(employees2->eRank.retire, employees2->eRank.call);
-					printf("Количество дней службы: %d\n", employees2->eRank.dayOfService);
+					printf("РљРѕР»РёС‡РµСЃС‚РІРѕ РґРЅРµР№ СЃР»СѓР¶Р±С‹: %d\n", employees2->eRank.dayOfService);
 
-					printf("Введите воинскую часть: \n");
-					printf("1. АВОКУ.\n");
-					printf("2. СВО.\n");
-					printf("3. ЗВО.\n");
-					printf("4. ВВО.\n");
-					printf("5. ЮВО.\n");
+					printf("Р’РІРµРґРёС‚Рµ РІРѕРёРЅСЃРєСѓСЋ С‡Р°СЃС‚СЊ: \n");
+					printf("1. РђР’РћРљРЈ.\n");
+					printf("2. РЎР’Рћ.\n");
+					printf("3. Р—Р’Рћ.\n");
+					printf("4. Р’Р’Рћ.\n");
+					printf("5. Р®Р’Рћ.\n");
 
 					int disposition;
 					scanf("%d", &disposition);
@@ -884,23 +884,23 @@ void adminMenu()
 					switch (disposition)
 					{
 					case 1:
-						strcpy(employees2->eRank.dispos, "АВОКУ");
+						strcpy(employees2->eRank.dispos, "РђР’РћРљРЈ");
 						break;
 
 					case 2:
-						strcpy(employees2->eRank.dispos, "СВО");
+						strcpy(employees2->eRank.dispos, "РЎР’Рћ");
 						break;
 
 					case 3:
-						strcpy(employees2->eRank.dispos, "ЗВО");
+						strcpy(employees2->eRank.dispos, "Р—Р’Рћ");
 						break;
 
 					case 4:
-						strcpy(employees2->eRank.dispos, "ВВО");
+						strcpy(employees2->eRank.dispos, "Р’Р’Рћ");
 						break;
 
 					case 5:
-						strcpy(employees2->eRank.dispos, "ЮВО");
+						strcpy(employees2->eRank.dispos, "Р®Р’Рћ");
 						break;
 					}
 
@@ -913,38 +913,38 @@ void adminMenu()
 					employees2->eRank.retire.day = 0;
 					employees2->eRank.retire.month = 0;
 					employees2->eRank.retire.year = 0;
-					strcpy(employees2->eRank.rank, "Невоеннообязанный\n");
-					strcpy(employees2->eRank.dispos, "Невоеннообязанный\n");
+					strcpy(employees2->eRank.rank, "РќРµРІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Р№\n");
+					strcpy(employees2->eRank.dispos, "РќРµРІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Р№\n");
 				}
 
 				employees2->password = generatePassword();
-				printf("пароль: %ld\n", employees2->password);
+				printf("РїР°СЂРѕР»СЊ: %ld\n", employees2->password);
 
 				employees2->iin = generateIIN(&employees2->btd);
-				printf("ИИН: %lld\n", employees2->iin);
+				printf("РРРќ: %lld\n", employees2->iin);
 
-				printf("Роль: 1 - админ, 0 - пользователь.\n");
+				printf("Р РѕР»СЊ: 1 - Р°РґРјРёРЅ, 0 - РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ.\n");
 				scanf("%d", &employees2->eRole);
 
 				fwrite(employees2, sizeof(EMPLOYEE), 1, fp);
 
 				clear();
-				printf("Данные успешно сохранены.\n");
+				printf("Р”Р°РЅРЅС‹Рµ СѓСЃРїРµС€РЅРѕ СЃРѕС…СЂР°РЅРµРЅС‹.\n");
 			}
 			else
-				printf("Ошибка!\n");
+				printf("РћС€РёР±РєР°!\n");
 
 			Line();
 			fclose(fp);
 			clear();
 		}break;
 
-		/* 2.Инормация о сотрудниках */
+		/* 2.РРЅРѕСЂРјР°С†РёСЏ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С… */
 		case 2:
 		{
 			clear();
 			Line();
-			printf("\t\t\t2.Инормация о сотрудниках.\n");
+			printf("\t\t\t2.РРЅРѕСЂРјР°С†РёСЏ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С….\n");
 			Line();
 
 			if ((fp = fopen(path, "r")) != NULL)
@@ -957,17 +957,17 @@ void adminMenu()
 			fclose(fp);
 		}break;
 
-		/* 3. Редактирование данных сотрудника. */
+		/* 3. Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґР°РЅРЅС‹С… СЃРѕС‚СЂСѓРґРЅРёРєР°. */
 		case 3:
 		{
 			clear();
 			Line();
-			printf("\t\t\t3. Редактирование данных сотрудника.\n");
+			printf("\t\t\t3. Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ РґР°РЅРЅС‹С… СЃРѕС‚СЂСѓРґРЅРёРєР°.\n");
 			Line();
 			char lastName[30];
 			char tempChar[30];
 			int tempInt;
-			printf("Введите фамилию сотрудника: ");
+			printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
 			scanf("%s", lastName);
 			Line();
 
@@ -996,101 +996,101 @@ void adminMenu()
 						do
 						{
 							Line();
-							printf("Выберите поле для редактирования:\n");
-							printf("1. Фамилия\n");
-							printf("2. Имя\n");
-							printf("3. Отчество\n");
-							printf("4. Дата рождения\n");
-							printf("5. Дата начала работы\n");
-							printf("6. Должность и оклад\n");
-							printf("7. Звание\n");
-							printf("8. Дата призыва\n");
-							printf("9. Дата увольнения в запас\n");
-							printf("10. Воинская часть\n");
-							printf("11. Роль\n");
-							printf("12. Пароль\n");
+							printf("Р’С‹Р±РµСЂРёС‚Рµ РїРѕР»Рµ РґР»СЏ СЂРµРґР°РєС‚РёСЂРѕРІР°РЅРёСЏ:\n");
+							printf("1. Р¤Р°РјРёР»РёСЏ\n");
+							printf("2. РРјСЏ\n");
+							printf("3. РћС‚С‡РµСЃС‚РІРѕ\n");
+							printf("4. Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ\n");
+							printf("5. Р”Р°С‚Р° РЅР°С‡Р°Р»Р° СЂР°Р±РѕС‚С‹\n");
+							printf("6. Р”РѕР»Р¶РЅРѕСЃС‚СЊ Рё РѕРєР»Р°Рґ\n");
+							printf("7. Р—РІР°РЅРёРµ\n");
+							printf("8. Р”Р°С‚Р° РїСЂРёР·С‹РІР°\n");
+							printf("9. Р”Р°С‚Р° СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ\n");
+							printf("10. Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ\n");
+							printf("11. Р РѕР»СЊ\n");
+							printf("12. РџР°СЂРѕР»СЊ\n");
 
 							scanf("%d", &n);
 							Line();
 							switch (n)
 							{
-								/* 1. Фамилия */
+								/* 1. Р¤Р°РјРёР»РёСЏ */
 							case 1:
 							{
 								Line();
-								printf("Текущая фамилия: %s\n",
+								printf("РўРµРєСѓС‰Р°СЏ С„Р°РјРёР»РёСЏ: %s\n",
 									(redactedItemd + s)->lName);
 
-								printf("Введите фамилию: ");
+								printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ: ");
 								scanf("%s", tempChar);
 								strcpy((redactedItemd + s)->lName, tempChar);
 								printf("%s\n", (redactedItemd + s)->lName);
 								Line();
 							}break;
 
-							/* 2. Имя */
+							/* 2. РРјСЏ */
 							case 2:
 							{
 								Line();
-								printf("Текущее имя: %s\n",
+								printf("РўРµРєСѓС‰РµРµ РёРјСЏ: %s\n",
 									(redactedItemd + s)->fName);
 
-								printf("Введите имя: ");
+								printf("Р’РІРµРґРёС‚Рµ РёРјСЏ: ");
 								scanf("%s", tempChar);
 								strcpy((redactedItemd + s)->fName, tempChar);
 								printf("%s\n", (redactedItemd + s)->fName);
 								Line();
 							}break;
 
-							/* 3. Отчество */
+							/* 3. РћС‚С‡РµСЃС‚РІРѕ */
 							case 3:
 							{
 								Line();
-								printf("Текущее отчество: %s\n",
+								printf("РўРµРєСѓС‰РµРµ РѕС‚С‡РµСЃС‚РІРѕ: %s\n",
 									(redactedItemd + s)->mName);
 
-								printf("Введите отчество: ");
+								printf("Р’РІРµРґРёС‚Рµ РѕС‚С‡РµСЃС‚РІРѕ: ");
 								scanf("%s", tempChar);
 								strcpy((redactedItemd + s)->mName, tempChar);
 								printf("%s\n", (redactedItemd + s)->mName);
 								Line();
 							}break;
 
-							/* 4. Дата рождения */
+							/* 4. Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ */
 							case 4:
 							{
 								Line();
-								printf("Текущая дата рождения: %d.%d.%d\n",
+								printf("РўРµРєСѓС‰Р°СЏ РґР°С‚Р° СЂРѕР¶РґРµРЅРёСЏ: %d.%d.%d\n",
 									(redactedItemd + s)->btd.day,
 									(redactedItemd + s)->btd.month,
 									(redactedItemd + s)->btd.year);
-								printf("Введите дату рождения в формате (дд.мм.гггг): ");
+								printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СЂРѕР¶РґРµРЅРёСЏ РІ С„РѕСЂРјР°С‚Рµ (РґРґ.РјРј.РіРіРіРі): ");
 								scanf("%d.%d.%d",
 									&(redactedItemd + s)->btd.day,
 									&(redactedItemd + s)->btd.month,
 									&(redactedItemd + s)->btd.year);
-								printf("Дата рождения: %d.%d.%d\n",
+								printf("Р”Р°С‚Р° СЂРѕР¶РґРµРЅРёСЏ: %d.%d.%d\n",
 									(redactedItemd + s)->btd.day,
 									(redactedItemd + s)->btd.month,
 									(redactedItemd + s)->btd.year);
 								Line();
 							}break;
 
-							/* 5. Дата начала работы */
+							/* 5. Р”Р°С‚Р° РЅР°С‡Р°Р»Р° СЂР°Р±РѕС‚С‹ */
 							case 5:
 							{
 								Line();
-								printf("Текущая дата поступления на работу: %d.%d.%d\n",
+								printf("РўРµРєСѓС‰Р°СЏ РґР°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЂР°Р±РѕС‚Сѓ: %d.%d.%d\n",
 									(redactedItemd + s)->pos.entryDate.day,
 									(redactedItemd + s)->pos.entryDate.month,
 									(redactedItemd + s)->pos.entryDate.year);
 
-								printf("Введите дату поступления на работу в формате (дд.мм.гггг): ");
+								printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЂР°Р±РѕС‚Сѓ РІ С„РѕСЂРјР°С‚Рµ (РґРґ.РјРј.РіРіРіРі): ");
 								scanf("%d.%d.%d",
 									&(redactedItemd + s)->pos.entryDate.day,
 									&(redactedItemd + s)->pos.entryDate.month,
 									&(redactedItemd + s)->pos.entryDate.year);
-								printf("Дата поступления на работу: %d.%d.%d\n",
+								printf("Р”Р°С‚Р° РїРѕСЃС‚СѓРїР»РµРЅРёСЏ РЅР° СЂР°Р±РѕС‚Сѓ: %d.%d.%d\n",
 									(redactedItemd + s)->pos.entryDate.day,
 									(redactedItemd + s)->pos.entryDate.month,
 									(redactedItemd + s)->pos.entryDate.year);
@@ -1098,89 +1098,89 @@ void adminMenu()
 								Line();
 							}break;
 
-							/* 6. Должность и оклад */
+							/* 6. Р”РѕР»Р¶РЅРѕСЃС‚СЊ Рё РѕРєР»Р°Рґ */
 							case 6:
 							{
 								Line();
-								printf("Текущая должность: %s\n", (redactedItemd + s)->pos.pstn);
-								printf("Текущий оклад: %s\n", &(redactedItemd + s)->pos.sal);
-								printf("Введите должность: \n");
-								printf("1. Разнорабочий.\n");
-								printf("2. Техник.\n");
-								printf("3. Слесарь.\n");
-								printf("4. Кладовщик.\n");
-								printf("5. Бухгалтер.\n");
-								printf("6. Начальник смены.\n");
-								printf("7. Сотрудник администрации.\n");
+								printf("РўРµРєСѓС‰Р°СЏ РґРѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", (redactedItemd + s)->pos.pstn);
+								printf("РўРµРєСѓС‰РёР№ РѕРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
+								printf("Р’РІРµРґРёС‚Рµ РґРѕР»Р¶РЅРѕСЃС‚СЊ: \n");
+								printf("1. Р Р°Р·РЅРѕСЂР°Р±РѕС‡РёР№.\n");
+								printf("2. РўРµС…РЅРёРє.\n");
+								printf("3. РЎР»РµСЃР°СЂСЊ.\n");
+								printf("4. РљР»Р°РґРѕРІС‰РёРє.\n");
+								printf("5. Р‘СѓС…РіР°Р»С‚РµСЂ.\n");
+								printf("6. РќР°С‡Р°Р»СЊРЅРёРє СЃРјРµРЅС‹.\n");
+								printf("7. РЎРѕС‚СЂСѓРґРЅРёРє Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё.\n");
 								int position;
 								scanf("%d", &position);
 								switch (position)
 								{
 								case 1:
-									strcpy((redactedItemd + s)->pos.pstn, "Разнорабочий");
+									strcpy((redactedItemd + s)->pos.pstn, "Р Р°Р·РЅРѕСЂР°Р±РѕС‡РёР№");
 									strcpy((redactedItemd + s)->pos.sal, "50000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 
 								case 2:
-									strcpy((redactedItemd + s)->pos.pstn, "Техник");
+									strcpy((redactedItemd + s)->pos.pstn, "РўРµС…РЅРёРє");
 									strcpy((redactedItemd + s)->pos.sal, "70000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 
 								case 3:
-									strcpy((redactedItemd + s)->pos.pstn, "Слесарь");
+									strcpy((redactedItemd + s)->pos.pstn, "РЎР»РµСЃР°СЂСЊ");
 									strcpy((redactedItemd + s)->pos.sal, "100000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 
 								case 4:
-									strcpy((redactedItemd + s)->pos.pstn, "Кладовщик");
+									strcpy((redactedItemd + s)->pos.pstn, "РљР»Р°РґРѕРІС‰РёРє");
 									strcpy((redactedItemd + s)->pos.sal, "120000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 
 								case 5:
-									strcpy((redactedItemd + s)->pos.pstn, "Бухгалтер");
+									strcpy((redactedItemd + s)->pos.pstn, "Р‘СѓС…РіР°Р»С‚РµСЂ");
 									strcpy((redactedItemd + s)->pos.sal, "150000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 
 								case 6:
-									strcpy((redactedItemd + s)->pos.pstn, "Начальник смены");
+									strcpy((redactedItemd + s)->pos.pstn, "РќР°С‡Р°Р»СЊРЅРёРє СЃРјРµРЅС‹");
 									strcpy((redactedItemd + s)->pos.sal, "170000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 
 								case 7:
-									strcpy((redactedItemd + s)->pos.pstn, "Сотрудник администрации");
+									strcpy((redactedItemd + s)->pos.pstn, "РЎРѕС‚СЂСѓРґРЅРёРє Р°РґРјРёРЅРёСЃС‚СЂР°С†РёРё");
 									strcpy((redactedItemd + s)->pos.sal, "1000000");
-									printf("Должность: %s\n", &(redactedItemd + s)->pos.pstn);
-									printf("Оклад: %s\n", &(redactedItemd + s)->pos.sal);
+									printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", &(redactedItemd + s)->pos.pstn);
+									printf("РћРєР»Р°Рґ: %s\n", &(redactedItemd + s)->pos.sal);
 									break;
 								}
 								Line();
 							}break;
 
-							/* 7. Звание */
+							/* 7. Р—РІР°РЅРёРµ */
 							case 7:
 							{
 								Line();
-								printf("Текущее звание: %s\n", &(redactedItemd + s)->eRank.rank);
+								printf("РўРµРєСѓС‰РµРµ Р·РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 
-								printf("Введите звание: \n");
-								printf("1. Рядовой.\n");
-								printf("2. Старшина.\n");
-								printf("3. Лейтенант.\n");
-								printf("4. Капитан.\n");
-								printf("5. Майор.\n");
-								printf("6. Подполковник.\n");
+								printf("Р’РІРµРґРёС‚Рµ Р·РІР°РЅРёРµ: \n");
+								printf("1. Р СЏРґРѕРІРѕР№.\n");
+								printf("2. РЎС‚Р°СЂС€РёРЅР°.\n");
+								printf("3. Р›РµР№С‚РµРЅР°РЅС‚.\n");
+								printf("4. РљР°РїРёС‚Р°РЅ.\n");
+								printf("5. РњР°Р№РѕСЂ.\n");
+								printf("6. РџРѕРґРїРѕР»РєРѕРІРЅРёРє.\n");
 
 								int rank;
 								scanf("%d", &rank);
@@ -1192,48 +1192,48 @@ void adminMenu()
 								{
 
 								case 1:
-									strcpy((redactedItemd + s)->eRank.rank, "Рядовой");
-									printf("Звание: %s\n", &(redactedItemd + s)->eRank.rank);
+									strcpy((redactedItemd + s)->eRank.rank, "Р СЏРґРѕРІРѕР№");
+									printf("Р—РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 									break;
 
 								case 2:
-									strcpy((redactedItemd + s)->eRank.rank, "Старшина");
-									printf("Звание: %s\n", &(redactedItemd + s)->eRank.rank);
+									strcpy((redactedItemd + s)->eRank.rank, "РЎС‚Р°СЂС€РёРЅР°");
+									printf("Р—РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 									break;
 
 								case 3:
-									strcpy((redactedItemd + s)->eRank.rank, "Лейтенант");
-									printf("Звание: %s\n", &(redactedItemd + s)->eRank.rank);
+									strcpy((redactedItemd + s)->eRank.rank, "Р›РµР№С‚РµРЅР°РЅС‚");
+									printf("Р—РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 									break;
 
 								case 4:
-									strcpy((redactedItemd + s)->eRank.rank, "Капитан");
-									printf("Звание: %s\n", &(redactedItemd + s)->eRank.rank);
+									strcpy((redactedItemd + s)->eRank.rank, "РљР°РїРёС‚Р°РЅ");
+									printf("Р—РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 									break;
 
 								case 5:
-									strcpy((redactedItemd + s)->eRank.rank, "Майор");
-									printf("Звание: %s\n", &(redactedItemd + s)->eRank.rank);
+									strcpy((redactedItemd + s)->eRank.rank, "РњР°Р№РѕСЂ");
+									printf("Р—РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 									break;
 
 								case 6:
-									strcpy((redactedItemd + s)->eRank.rank, "Подполковник");
-									printf("Звание: %s\n", &(redactedItemd + s)->eRank.rank);
+									strcpy((redactedItemd + s)->eRank.rank, "РџРѕРґРїРѕР»РєРѕРІРЅРёРє");
+									printf("Р—РІР°РЅРёРµ: %s\n", &(redactedItemd + s)->eRank.rank);
 									break;
 								}
 								Line();
 							}break;
 
-							/* 8. Дата призыва */
+							/* 8. Р”Р°С‚Р° РїСЂРёР·С‹РІР° */
 							case 8:
 							{
 								Line();
-								printf("Текущая дата призыва: %d.%d.%d\n",
+								printf("РўРµРєСѓС‰Р°СЏ РґР°С‚Р° РїСЂРёР·С‹РІР°: %d.%d.%d\n",
 									(redactedItemd + s)->eRank.call.day,
 									(redactedItemd + s)->eRank.call.month,
 									(redactedItemd + s)->eRank.call.year);
 
-								printf("Введите дату призыва (дд.мм.гггг): ");
+								printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ РїСЂРёР·С‹РІР° (РґРґ.РјРј.РіРіРіРі): ");
 								scanf("%d.%d.%d",
 									&(redactedItemd + s)->eRank.call.day,
 									&(redactedItemd + s)->eRank.call.month,
@@ -1244,7 +1244,7 @@ void adminMenu()
 									(redactedItemd + s)->eRankId = 1;
 								}
 
-								printf("Дата призыва: %d.%d.%d\n",
+								printf("Р”Р°С‚Р° РїСЂРёР·С‹РІР°: %d.%d.%d\n",
 									(redactedItemd + s)->eRank.call.day,
 									(redactedItemd + s)->eRank.call.month,
 									(redactedItemd + s)->eRank.call.year);
@@ -1252,15 +1252,15 @@ void adminMenu()
 
 							}break;
 
-							/* 9. Дата увольнения в запас */
+							/* 9. Р”Р°С‚Р° СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ */
 							case 9:
 							{
 								Line();
-								printf("Текущая дата увольнения в запас: %d.%d.%d\n",
+								printf("РўРµРєСѓС‰Р°СЏ РґР°С‚Р° СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ: %d.%d.%d\n",
 									(redactedItemd + s)->eRank.retire.day,
 									(redactedItemd + s)->eRank.retire.month,
 									(redactedItemd + s)->eRank.retire.year);
-								printf("Введите дату увольнения в запас (дд.мм.гггг): ");
+								printf("Р’РІРµРґРёС‚Рµ РґР°С‚Сѓ СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ (РґРґ.РјРј.РіРіРіРі): ");
 								scanf("%d.%d.%d",
 									&(redactedItemd + s)->eRank.retire.day,
 									&(redactedItemd + s)->eRank.retire.month,
@@ -1270,24 +1270,24 @@ void adminMenu()
 								{
 									(redactedItemd + s)->eRankId = 1;
 								}
-								printf("Дата увольнения в запас: %d.%d.%d\n",
+								printf("Р”Р°С‚Р° СѓРІРѕР»СЊРЅРµРЅРёСЏ РІ Р·Р°РїР°СЃ: %d.%d.%d\n",
 									(redactedItemd + s)->eRank.retire.day,
 									(redactedItemd + s)->eRank.retire.month,
 									(redactedItemd + s)->eRank.retire.year);
 								Line();
 							}break;
 
-							/* 10. Воинская часть */
+							/* 10. Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ */
 							case 10:
 							{
 								Line();
-								printf("Текущая воинская часть: %s\n", &(redactedItemd + s)->eRank.dispos);
-								printf("Введите воинскую часть: \n");
-								printf("1. АВОКУ.\n");
-								printf("2. СВО.\n");
-								printf("3. ЗВО.\n");
-								printf("4. ВВО.\n");
-								printf("5. ЮВО.\n");
+								printf("РўРµРєСѓС‰Р°СЏ РІРѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n", &(redactedItemd + s)->eRank.dispos);
+								printf("Р’РІРµРґРёС‚Рµ РІРѕРёРЅСЃРєСѓСЋ С‡Р°СЃС‚СЊ: \n");
+								printf("1. РђР’РћРљРЈ.\n");
+								printf("2. РЎР’Рћ.\n");
+								printf("3. Р—Р’Рћ.\n");
+								printf("4. Р’Р’Рћ.\n");
+								printf("5. Р®Р’Рћ.\n");
 
 								int disposition;
 								scanf("%d", &disposition);
@@ -1299,60 +1299,60 @@ void adminMenu()
 										(redactedItemd + s)->eRankId = 1;
 									}
 								case 1:
-									strcpy((redactedItemd + s)->eRank.dispos, "АВОКУ");
-									printf("Воинская часть: %s\n", &(redactedItemd + s)->eRank.dispos);
+									strcpy((redactedItemd + s)->eRank.dispos, "РђР’РћРљРЈ");
+									printf("Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n", &(redactedItemd + s)->eRank.dispos);
 									break;
 
 								case 2:
-									strcpy((redactedItemd + s)->eRank.dispos, "СВО");
-									printf("Воинская часть: %s\n", &(redactedItemd + s)->eRank.dispos);
+									strcpy((redactedItemd + s)->eRank.dispos, "РЎР’Рћ");
+									printf("Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n", &(redactedItemd + s)->eRank.dispos);
 									break;
 
 								case 3:
-									strcpy((redactedItemd + s)->eRank.dispos, "ЗВО");
-									printf("Воинская часть: %s\n", &(redactedItemd + s)->eRank.dispos);
+									strcpy((redactedItemd + s)->eRank.dispos, "Р—Р’Рћ");
+									printf("Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n", &(redactedItemd + s)->eRank.dispos);
 									break;
 
 								case 4:
-									strcpy((redactedItemd + s)->eRank.dispos, "ВВО");
-									printf("Воинская часть: %s\n", &(redactedItemd + s)->eRank.dispos);
+									strcpy((redactedItemd + s)->eRank.dispos, "Р’Р’Рћ");
+									printf("Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n", &(redactedItemd + s)->eRank.dispos);
 									break;
 
 								case 5:
-									strcpy((redactedItemd + s)->eRank.dispos, "ЮВО");
-									printf("Воинская часть: %s\n", &(redactedItemd + s)->eRank.dispos);
+									strcpy((redactedItemd + s)->eRank.dispos, "Р®Р’Рћ");
+									printf("Р’РѕРёРЅСЃРєР°СЏ С‡Р°СЃС‚СЊ: %s\n", &(redactedItemd + s)->eRank.dispos);
 									break;
 								}
 								Line();
 							}break;
 
-							/* 11. Роль */
+							/* 11. Р РѕР»СЊ */
 							case 11:
 							{
 								Line();
 								if ((redactedItemd + s)->eRole == 0)
-									printf("Текущая роль: %s\n", "пользователь.");
+									printf("РўРµРєСѓС‰Р°СЏ СЂРѕР»СЊ: %s\n", "РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ.");
 								else
-									printf("Текущая роль: %s\n", "админ.");
+									printf("РўРµРєСѓС‰Р°СЏ СЂРѕР»СЊ: %s\n", "Р°РґРјРёРЅ.");
 
-								printf("Введите роль: \n");
+								printf("Р’РІРµРґРёС‚Рµ СЂРѕР»СЊ: \n");
 								scanf("%d", &(redactedItemd + s)->eRole);
 
 								if ((redactedItemd + s)->eRole == 0)
-									printf("Роль: %s\n", "пользователь.");
+									printf("Р РѕР»СЊ: %s\n", "РїРѕР»СЊР·РѕРІР°С‚РµР»СЊ.");
 								else
-									printf("Роль: %s\n", "админ.");
+									printf("Р РѕР»СЊ: %s\n", "Р°РґРјРёРЅ.");
 								Line();
 
 							}break;
 
-							/* 12. Пароль */
+							/* 12. РџР°СЂРѕР»СЊ */
 							case 12:
 							{
 								Line();
-								printf("Текущий пароль: %ld\n", (redactedItemd + s)->password);
+								printf("РўРµРєСѓС‰РёР№ РїР°СЂРѕР»СЊ: %ld\n", (redactedItemd + s)->password);
 								(redactedItemd + s)->password = generatePassword();
-								printf("Сгенерированный пароль: %ld\n", (redactedItemd + s)->password);
+								printf("РЎРіРµРЅРµСЂРёСЂРѕРІР°РЅРЅС‹Р№ РїР°СЂРѕР»СЊ: %ld\n", (redactedItemd + s)->password);
 								Line();
 
 							}break;
@@ -1360,8 +1360,8 @@ void adminMenu()
 							default:
 							{
 								Line();
-								printf("Такого поля нет.\n");
-								printf("Выберите поле еще раз.\n");
+								printf("РўР°РєРѕРіРѕ РїРѕР»СЏ РЅРµС‚.\n");
+								printf("Р’С‹Р±РµСЂРёС‚Рµ РїРѕР»Рµ РµС‰Рµ СЂР°Р·.\n");
 								Line();
 							}break;
 
@@ -1377,7 +1377,7 @@ void adminMenu()
 
 				if (!flag)
 				{
-					printf("По Вашему запросу ничего не найдено.\n");
+					printf("РџРѕ Р’Р°С€РµРјСѓ Р·Р°РїСЂРѕСЃСѓ РЅРёС‡РµРіРѕ РЅРµ РЅР°Р№РґРµРЅРѕ.\n");
 				}
 				else
 					PrintInfoEmpoyee((redactedItemd + ind), 1);
@@ -1392,15 +1392,15 @@ void adminMenu()
 
 		}break;
 
-		/* 4. Удаление сотрудника. */
+		/* 4. РЈРґР°Р»РµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°. */
 		//case 4:
 		//{
 		//	clear();
 		//	char lastName[30];
 		//	Stars();
-		//	printf("\t\t\t4. Удаление сотрудника.\n");
+		//	printf("\t\t\t4. РЈРґР°Р»РµРЅРёРµ СЃРѕС‚СЂСѓРґРЅРёРєР°.\n");
 		//	Line();
-		//	printf("Введите фамилию сотрудника: ");
+		//	printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
 		//	scanf("%s", lastName);
 		//	Line();
 
@@ -1437,7 +1437,7 @@ void adminMenu()
 		//	{
 		//		if (i<index)
 		//		{
-		//			(eLastName2 + i)->tblNmb = (eLastName1 + i)->tblNmb; // табельный номер
+		//			(eLastName2 + i)->tblNmb = (eLastName1 + i)->tblNmb; // С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ
 
 		//			strcpy((eLastName2 + i)->lName, (eLastName1 + i)->lName);
 		//			strcpy((eLastName2 + i)->fName, (eLastName1 + i)->fName);
@@ -1482,7 +1482,7 @@ void adminMenu()
 		//		}
 		//		else if (i>= index)
 		//		{
-		//			(eLastName2 + i)->tblNmb = (eLastName1 + i+1)->tblNmb; // табельный номер
+		//			(eLastName2 + i)->tblNmb = (eLastName1 + i+1)->tblNmb; // С‚Р°Р±РµР»СЊРЅС‹Р№ РЅРѕРјРµСЂ
 
 		//			strcpy((eLastName2 + i)->lName, (eLastName1 + i+1)->lName);
 		//			strcpy((eLastName2 + i)->fName, (eLastName1 + i+1)->fName);
@@ -1534,15 +1534,15 @@ void adminMenu()
 
 		//}break;
 
-		/* 5. Поиск сотрудника по фамилии.*/
+		/* 5. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєР° РїРѕ С„Р°РјРёР»РёРё.*/
 		case 5:
 		{
 			clear();
 			char lastName[30];
 			Stars();
-			printf("\t\t\t5. Поиск сотрудника по фамилии.\n");
+			printf("\t\t\t5. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєР° РїРѕ С„Р°РјРёР»РёРё.\n");
 			Line();
-			printf("Введите фамилию сотрудника: ");
+			printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
 			scanf("%s", lastName);
 			Line();
 
@@ -1576,15 +1576,15 @@ void adminMenu()
 
 		}break;
 
-		/* 6. Поиск сотрудников по возрасту.*/
+		/* 6. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕ РІРѕР·СЂР°СЃС‚Сѓ.*/
 		case 6:
 		{
 			clear();
 			int eAge;
 			Stars();
-			printf("\t\t\t6. Поиск сотрудников по возрасту.\n");
+			printf("\t\t\t6. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕ РІРѕР·СЂР°СЃС‚Сѓ.\n");
 			Line();
-			printf("Введите возраст сотрудника: ");
+			printf("Р’РІРµРґРёС‚Рµ РІРѕР·СЂР°СЃС‚ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
 			scanf("%d", &eAge);
 			Line();
 
@@ -1617,16 +1617,16 @@ void adminMenu()
 			fclose(fp);
 		}break;
 
-		/*7. Поиск сотрудников по начальной букве.*/
+		/*7. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕ РЅР°С‡Р°Р»СЊРЅРѕР№ Р±СѓРєРІРµ.*/
 		case 7:
 		{
 			clear();
 			char eLetter[1];
 
 			Stars();
-			printf("\t\t\t7. Поиск сотрудников по начальной букве.\n");
+			printf("\t\t\t7. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РїРѕ РЅР°С‡Р°Р»СЊРЅРѕР№ Р±СѓРєРІРµ.\n");
 			Line();
-			printf("Введите начальную букву сотрудника: ");
+			printf("Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»СЊРЅСѓСЋ Р±СѓРєРІСѓ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
 			scanf("%s", eLetter);
 			Line();
 
@@ -1658,11 +1658,11 @@ void adminMenu()
 			fclose(fp);
 		}break;
 
-		/* 8. Список пользователей входивших в систему.*/
+		/* 8. РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РІС…РѕРґРёРІС€РёС… РІ СЃРёСЃС‚РµРјСѓ.*/
 		case 8:
 		{
 			Stars();
-			printf("\t\t\t8. Список пользователей входивших в систему.\n");
+			printf("\t\t\t8. РЎРїРёСЃРѕРє РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№ РІС…РѕРґРёРІС€РёС… РІ СЃРёСЃС‚РµРјСѓ.\n");
 			Line();
 
 			if ((fp = fopen(path2, "r")) != NULL)
@@ -1673,13 +1673,13 @@ void adminMenu()
 				{
 
 					printf("-------------------------------\n");
-					printf("Фамилия: %s\n", logins->lNameLog);
-					printf("Имя: %s\n", logins->fNameLog);
-					printf("Отчество: %s\n", logins->mNameLog);
-					printf("Должность: %s\n", logins->pstnLog);
-					printf("Пароль: %d\n", logins->passwordLog);
+					printf("Р¤Р°РјРёР»РёСЏ: %s\n", logins->lNameLog);
+					printf("РРјСЏ: %s\n", logins->fNameLog);
+					printf("РћС‚С‡РµСЃС‚РІРѕ: %s\n", logins->mNameLog);
+					printf("Р”РѕР»Р¶РЅРѕСЃС‚СЊ: %s\n", logins->pstnLog);
+					printf("РџР°СЂРѕР»СЊ: %d\n", logins->passwordLog);
 
-					printf("Время: %s\n", logins->timeLogIn);
+					printf("Р’СЂРµРјСЏ: %s\n", logins->timeLogIn);
 					printf("-------------------------------\n");
 				}
 
@@ -1687,12 +1687,12 @@ void adminMenu()
 			fclose(fp);
 		}break;
 
-		/*9. Отчет о военнообязанных с указанием срока службы в днях.*/
+		/*9. РћС‚С‡РµС‚ Рѕ РІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹С… СЃ СѓРєР°Р·Р°РЅРёРµРј СЃСЂРѕРєР° СЃР»СѓР¶Р±С‹ РІ РґРЅСЏС….*/
 		case 9:
 		{
 			clear();
 			Stars();
-			printf("\t\t\t9. Отчет о военнообязанных с указанием срока службы в днях.\n");
+			printf("\t\t\t9. РћС‚С‡РµС‚ Рѕ РІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹С… СЃ СѓРєР°Р·Р°РЅРёРµРј СЃСЂРѕРєР° СЃР»СѓР¶Р±С‹ РІ РґРЅСЏС….\n");
 			Stars();
 			Line();
 
@@ -1725,7 +1725,7 @@ void adminMenu()
 
 		}break;
 
-		/*10. Отчеты по военнообязанным по заданному периоду.*/
+		/*10. РћС‚С‡РµС‚С‹ РїРѕ РІРѕРµРЅРЅРѕРѕР±СЏР·Р°РЅРЅС‹Рј РїРѕ Р·Р°РґР°РЅРЅРѕРјСѓ РїРµСЂРёРѕРґСѓ.*/
 		case 10:
 		{
 			clear();
@@ -1733,10 +1733,10 @@ void adminMenu()
 
 			int day1, day2, month1, month2, year1, year2;
 
-			printf("Введите начальную дату (дд.мм.гггг): ");
+			printf("Р’РІРµРґРёС‚Рµ РЅР°С‡Р°Р»СЊРЅСѓСЋ РґР°С‚Сѓ (РґРґ.РјРј.РіРіРіРі): ");
 			scanf("%d.%d.%d", &day1, &month1, &year1);
 
-			printf("Введите конечную дату (дд.мм.гггг): ");
+			printf("Р’РІРµРґРёС‚Рµ РєРѕРЅРµС‡РЅСѓСЋ РґР°С‚Сѓ (РґРґ.РјРј.РіРіРіРі): ");
 			scanf("%d.%d.%d", &day2, &month2, &year2);
 
 			Line();
@@ -1773,30 +1773,30 @@ void adminMenu()
 	} while (p != 0);
 }
 
-/* меню пользователя */
+/* РјРµРЅСЋ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ */
 void userMenu()
 {
 	int p;
 	do
 	{
 		Line();
-		printf("1. Вывод информации о сотрудниках.\n");
-		printf("2. Поиск сотрудника по фамилии.\n");
-		printf("3. Отчет о возрасте каждого сотрудника и количестве отработанных дней.\n");
-		printf("4. Отчет о сотрудниках предпенсионного возраста со стажем более 30 лет .\n");
+		printf("1. Р’С‹РІРѕРґ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С….\n");
+		printf("2. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєР° РїРѕ С„Р°РјРёР»РёРё.\n");
+		printf("3. РћС‚С‡РµС‚ Рѕ РІРѕР·СЂР°СЃС‚Рµ РєР°Р¶РґРѕРіРѕ СЃРѕС‚СЂСѓРґРЅРёРєР° Рё РєРѕР»РёС‡РµСЃС‚РІРµ РѕС‚СЂР°Р±РѕС‚Р°РЅРЅС‹С… РґРЅРµР№.\n");
+		printf("4. РћС‚С‡РµС‚ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С… РїСЂРµРґРїРµРЅСЃРёРѕРЅРЅРѕРіРѕ РІРѕР·СЂР°СЃС‚Р° СЃРѕ СЃС‚Р°Р¶РµРј Р±РѕР»РµРµ 30 Р»РµС‚ .\n");
 		Line();
 
-		printf("Выберите пункт меню: ");
+		printf("Р’С‹Р±РµСЂРёС‚Рµ РїСѓРЅРєС‚ РјРµРЅСЋ: ");
 		scanf("%d", &p);
 
 		switch (p)
 		{
-			/* 1. Инормация о сотрудниках. */
+			/* 1. РРЅРѕСЂРјР°С†РёСЏ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С…. */
 		case 1:
 		{
 			clear();
 			Line();
-			printf("\t\t\t1.Инормация о сотрудниках.\n");
+			printf("\t\t\t1.РРЅРѕСЂРјР°С†РёСЏ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С….\n");
 			Line();
 
 			if ((fp = fopen(path, "r")) != NULL)
@@ -1811,15 +1811,15 @@ void userMenu()
 
 		}break;
 
-		/* 2. Поиск сотрудника по фамилии. */
+		/* 2. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєР° РїРѕ С„Р°РјРёР»РёРё. */
 		case 2:
 		{
 			clear();
 			char lastName[30];
 			Stars();
-			printf("\t\t\t2. Поиск сотрудника по фамилии.\n");
+			printf("\t\t\t2. РџРѕРёСЃРє СЃРѕС‚СЂСѓРґРЅРёРєР° РїРѕ С„Р°РјРёР»РёРё.\n");
 			Line();
-			printf("Введите фамилию сотрудника: ");
+			printf("Р’РІРµРґРёС‚Рµ С„Р°РјРёР»РёСЋ СЃРѕС‚СЂСѓРґРЅРёРєР°: ");
 			scanf("%s", lastName);
 			Line();
 
@@ -1851,12 +1851,12 @@ void userMenu()
 
 		}break;
 
-		/* 3. Отчет о возрасте каждого сотрудника и количестве отработанных дней. */
+		/* 3. РћС‚С‡РµС‚ Рѕ РІРѕР·СЂР°СЃС‚Рµ РєР°Р¶РґРѕРіРѕ СЃРѕС‚СЂСѓРґРЅРёРєР° Рё РєРѕР»РёС‡РµСЃС‚РІРµ РѕС‚СЂР°Р±РѕС‚Р°РЅРЅС‹С… РґРЅРµР№. */
 		case 3:
 		{
 			clear();
 			Line();
-			printf("\t\t\t3. Отчет о возрасте каждого сотрудника и количестве отработанных дней.\n");
+			printf("\t\t\t3. РћС‚С‡РµС‚ Рѕ РІРѕР·СЂР°СЃС‚Рµ РєР°Р¶РґРѕРіРѕ СЃРѕС‚СЂСѓРґРЅРёРєР° Рё РєРѕР»РёС‡РµСЃС‚РІРµ РѕС‚СЂР°Р±РѕС‚Р°РЅРЅС‹С… РґРЅРµР№.\n");
 			Line();
 
 			if ((fp = fopen(path, "r")) != NULL)
@@ -1871,17 +1871,17 @@ void userMenu()
 
 		}break;
 
-		/* 4. Отчет о сотрудниках предпенсионного возраста со стажем более 30 лет. */
+		/* 4. РћС‚С‡РµС‚ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С… РїСЂРµРґРїРµРЅСЃРёРѕРЅРЅРѕРіРѕ РІРѕР·СЂР°СЃС‚Р° СЃРѕ СЃС‚Р°Р¶РµРј Р±РѕР»РµРµ 30 Р»РµС‚. */
 		case 4:
 		{
-			/* Организовать просмотр информации о сотрудниках пенсионного возраста
-			(мужчины – до 60 лет, женщины – до 55 лет), проработавших на предприятии более 30 лет.*/
+			/* РћСЂРіР°РЅРёР·РѕРІР°С‚СЊ РїСЂРѕСЃРјРѕС‚СЂ РёРЅС„РѕСЂРјР°С†РёРё Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С… РїРµРЅСЃРёРѕРЅРЅРѕРіРѕ РІРѕР·СЂР°СЃС‚Р°
+			(РјСѓР¶С‡РёРЅС‹ вЂ“ РґРѕ 60 Р»РµС‚, Р¶РµРЅС‰РёРЅС‹ вЂ“ РґРѕ 55 Р»РµС‚), РїСЂРѕСЂР°Р±РѕС‚Р°РІС€РёС… РЅР° РїСЂРµРґРїСЂРёСЏС‚РёРё Р±РѕР»РµРµ 30 Р»РµС‚.*/
 			clear();
 			Stars();
 
 			int day1, day2, month1, month2, year1, year2;
 
-			printf("\t\t\t4. Отчет о сотрудниках предпенсионного возраста со стажем более 30 лет.\n");
+			printf("\t\t\t4. РћС‚С‡РµС‚ Рѕ СЃРѕС‚СЂСѓРґРЅРёРєР°С… РїСЂРµРґРїРµРЅСЃРёРѕРЅРЅРѕРіРѕ РІРѕР·СЂР°СЃС‚Р° СЃРѕ СЃС‚Р°Р¶РµРј Р±РѕР»РµРµ 30 Р»РµС‚.\n");
 
 
 			Line();

@@ -1,4 +1,4 @@
-struct BIRTHDATE
+О╩©struct BIRTHDATE
 {
 	int day;
 	int month;
@@ -34,20 +34,20 @@ struct LOGIN
 
 };
 
-struct ARMY // дкъ бнеммннаъгюммшу
+struct ARMY // п■п⌡п╞ п▓п·п∙п²п²п·п·п▒п╞п≈п░п²п²п╚п╔
 {
-	char rank[30]; //гбюмхе
-	DATE call; //дюрю опхгшбю
-	DATE retire; //дюрю сбнкэмемхъ б гюоюя
-	char dispos[10]; //бнхмяйюъ вюярэ
+	char rank[30]; //п≈п▓п░п²п≤п∙
+	DATE call; //п■п░п╒п░ п÷п═п≤п≈п╚п▓п░
+	DATE retire; //п■п░п╒п░ пёп▓п·п⌡п╛п²п∙п²п≤п╞ п▓ п≈п░п÷п░п║
+	char dispos[10]; //п▓п·п≤п²п║п п░п╞ п╖п░п║п╒п╛
 	int dayOfService;
 };
 
 struct POSITION
 {
-	char pstn[30];  //днкфмнярэ
-	char sal[10];        // нйкюд
-	DATE entryDate; //дюрю онярсокемхъ мю пюанрс
+	char pstn[30];  //п■п·п⌡п√п²п·п║п╒п╛
+	char sal[10];        // п·п п⌡п░п■
+	DATE entryDate; //п■п░п╒п░ п÷п·п║п╒пёп÷п⌡п∙п²п≤п╞ п²п░ п═п░п▒п·п╒пё
 	CURRANTDATE cdate;
 	int dayOfWork;
 	int yearOfWork;
@@ -55,19 +55,19 @@ struct POSITION
 
 struct EMPLOYEE
 {
-	int tblNmb; //рюаекэмши мнлеп
+	int tblNmb; //п╒п░п▒п∙п⌡п╛п²п╚п≥ п²п·п°п∙п═
 	char lName[10];
 	char fName[10];
-	char mName[10]; //тхн янрпсдмхйю
+	char mName[10]; //п╓п≤п· п║п·п╒п═пёп■п²п≤п п░
 	long long iin;
 	BIRTHDATE btd;
 
-	int sex; // онк: 1 - лсф, 0 - фем
+	int sex; // п÷п·п⌡: 1 - п°пёп√, 0 - п√п∙п²
 
-	POSITION pos; //днкфмнярэ
-	int eRankId; // дкъ бнеммннаъгюммшу: ДЮ ХКХ МЕР
-	ARMY eRank; // дкъ бнеммннаъгюммшу
-	int eRole; // пнкэ: юдлхм - 1, онкэгнбюрекэ - 0
+	POSITION pos; //п■п·п⌡п√п²п·п║п╒п╛
+	int eRankId; // п■п⌡п╞ п▓п·п∙п²п²п·п·п▒п╞п≈п░п²п²п╚п╔: п╢п╟ п╦п╩п╦ п╫п╣я┌
+	ARMY eRank; // п■п⌡п╞ п▓п·п∙п²п²п·п·п▒п╞п≈п░п²п²п╚п╔
+	int eRole; // п═п·п⌡п╛: п░п■п°п≤п² - 1, п÷п·п⌡п╛п≈п·п▓п░п╒п∙п⌡п╛ - 0
 	long password;
 	//char timeLogin[30];
 };
